@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Pushetta_Sample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pushetta_Sample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel BorderThickness="0" Padding="20">
+            <Border Name="errorBlock" Background="Red" Visibility="Collapsed">
+                <TextBlock Name="txtError" Foreground="White"  ></TextBlock>
+            </Border>
+            <TextBox Name="txtAPIKey" PlaceholderText="API Key" HorizontalAlignment="Center" Width="200"></TextBox>
+            
+            <TextBox Name="txtChannel" PlaceholderText="Channel"></TextBox>
+            <TextBox Name="txtMessage"  PlaceholderText="Message"></TextBox>
+            <Button Name="btnSend" Content="Send" Click="btnSend_Click"></Button>
+            
+        </StackPanel>
+
+    </Grid>
+</Page>
