@@ -7,10 +7,11 @@
     <ProjectGuid>{7E651306-C58B-4B05-A1AB-E7E049E0D6DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PushettaClient.Net42</RootNamespace>
-    <AssemblyName>PushettaClient.Net42</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>com.gumino.Pushetta</RootNamespace>
+    <AssemblyName>PushettaClient.Net45</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,7 +62,7 @@
       <Link>IPushettaSender.cs</Link>
     </Compile>
     <Compile Include="..\Pushetta-Lib\Message\PushMessage.cs">
-      <Link>PushMessage.cs</Link>
+      <Link>Message\PushMessage.cs</Link>
     </Compile>
     <Compile Include="..\Pushetta-Lib\PushettaConfig.cs">
       <Link>PushettaConfig.cs</Link>
@@ -71,9 +72,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Message\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pushetta-Sample", "Pushetta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushettaClient.UAP", "PushettaClient.UAP\PushettaClient.UAP.csproj", "{86C6694B-9723-4F5B-BB0B-F21BC1822A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushettaClient.Net42", "PushettaClient.Net42\PushettaClient.Net42.csproj", "{7E651306-C58B-4B05-A1AB-E7E049E0D6DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushettaClient.Net45", "PushettaClient.Net42\PushettaClient.Net45.csproj", "{7E651306-C58B-4B05-A1AB-E7E049E0D6DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3EA37CEC-9686-4815-9AF7-27B230DAC998}"
+	ProjectSection(SolutionItems) = preProject
+		PushettaClient.nuspec = PushettaClient.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
