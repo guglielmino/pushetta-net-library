@@ -3,5 +3,6 @@
     public class PushettaConfig
     {
         public string APIKey { get; set; }
+  
     }
 }

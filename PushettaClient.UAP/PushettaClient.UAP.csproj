@@ -128,11 +128,17 @@
     <Compile Include="..\Pushetta-Lib\IPushettaSender.cs">
       <Link>IPushettaSender.cs</Link>
     </Compile>
+    <Compile Include="..\Pushetta-Lib\Message\MessageEventArgs.cs">
+      <Link>Message\MessageEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\Pushetta-Lib\Message\PushMessage.cs">
       <Link>Message\PushMessage.cs</Link>
     </Compile>
     <Compile Include="..\Pushetta-Lib\PushettaConfig.cs">
       <Link>PushettaConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\Pushetta-Lib\PushettaReceiver.cs">
+      <Link>PushettaReceiver.cs</Link>
     </Compile>
     <Compile Include="..\Pushetta-Lib\PushettaSender.cs">
       <Link>Exceptions\PushettaSender.cs</Link>

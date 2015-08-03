@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -32,20 +33,31 @@ namespace Pushetta_Sample
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            IPushettaSender pushetta = new PushettaSender(new PushettaConfig()
+            var cfg = new PushettaConfig()
             {
-                 APIKey= txtAPIKey.Text
-            });
+                APIKey = txtAPIKey.Text
+            };
+
+            IPushettaSender pushetta = new PushettaSender(cfg);
+            IPushettaReceiver receiver = new PushettaReceiver(cfg);
+            receiver.SubscribeChannel("WebPush");
+            receiver.OnMessage += Receiver_OnMessage;
 
             try {
                 pushetta.SendMessage(txtChannel.Text,
-                    new PushMessage(txtMessage.Text, txtChannel.Text));
+                    new PushMessage(txtMessage.Text));
             }
             catch(PushettaException pex)
             {
                 errorBlock.Visibility = Visibility.Visible;
                 txtError.Text = pex.Message;
             }
+        }
+
+        private void Receiver_OnMessage(object sender, MessageEventArgs e)
+        {
+            lblMessageReceived.Visibility = Visibility.Visible;
+            lblMessageReceived.Text = UTF8Encoding.UTF8.GetString(e.Message);
         }
     }
 }

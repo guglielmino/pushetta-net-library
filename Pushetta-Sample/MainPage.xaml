@@ -29,7 +29,7 @@
 
 
 
-        <StackPanel Grid.Row="1"  HorizontalAlignment="Stretch" Height="545" Width="Auto"  Orientation="Vertical" Padding="0,0,-2,0">
+        <StackPanel Grid.Row="1"  HorizontalAlignment="Stretch" Height="680" Width="Auto"  Orientation="Vertical" Padding="0,0,-2,0">
 
             <StackPanel Orientation="Horizontal">
                 <Image Source="Assets/Logo_Pushetta.png" Margin="20,0,40,0"></Image>
@@ -58,7 +58,9 @@
 
             <Button Name="btnSend" Height="75" Width="450" Margin="5,10" Click="btnSend_Click" Content="Send" HorizontalAlignment="Center" FontSize="28"></Button>
 
-
+            <Border Background="Green">
+            <TextBlock Name="lblMessageReceived" Visibility="Collapsed" Height="60" Foreground="Wheat" FontSize="28" TextAlignment="Center"  Text="Messages received"></TextBlock>
+            </Border>
         </StackPanel>
 
     </Grid>

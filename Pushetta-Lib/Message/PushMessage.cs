@@ -29,9 +29,8 @@ namespace com.gumino.Pushetta
     public class PushMessage
     {
         public PushMessage(string body,
-            string channel,
-            Targets target = Targets.All,
-            DateTime? expire = null)
+                            Targets target = Targets.All,
+                            DateTime? expire = null)
         {
             Body = body;
  

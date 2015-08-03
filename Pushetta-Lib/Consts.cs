@@ -9,5 +9,6 @@ namespace com.gumino.Pushetta
    public static class Consts
     {
         public const string BASE_URL = "http://api.pushetta.com";
+        public const string MQTT_BROKER_HOSTNAME = "api.pushetta.com";
     }
 }

@@ -17,7 +17,7 @@
        <tags>messaging internetofthings iot cloud embedded micro netduino hardware windowsphone windowsphone8.1 arduino</tags>
    </metadata>
    <files>
-        <file src="PushettaClient.UAP\bin\Release\*.*" target="lib\net45" />
+        <file src="PushettaClient.UAP\bin\Release\*.*" target="lib\uap10.0" />
         <file src="PushettaClient.Net42\bin\Release\*.*" target="lib\net45" />
     </files>
 </package>

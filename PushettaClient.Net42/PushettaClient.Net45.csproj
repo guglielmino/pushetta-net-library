@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="M2Mqtt.Net, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\M2Mqtt.4.1.0.1\lib\net45\M2Mqtt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -61,11 +65,17 @@
     <Compile Include="..\Pushetta-Lib\IPushettaSender.cs">
       <Link>IPushettaSender.cs</Link>
     </Compile>
+    <Compile Include="..\Pushetta-Lib\Message\MessageEventArgs.cs">
+      <Link>Message\MessageEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\Pushetta-Lib\Message\PushMessage.cs">
       <Link>Message\PushMessage.cs</Link>
     </Compile>
     <Compile Include="..\Pushetta-Lib\PushettaConfig.cs">
       <Link>PushettaConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\Pushetta-Lib\PushettaReceiver.cs">
+      <Link>PushettaReceiver.cs</Link>
     </Compile>
     <Compile Include="..\Pushetta-Lib\PushettaSender.cs">
       <Link>PushettaSender.cs</Link>
