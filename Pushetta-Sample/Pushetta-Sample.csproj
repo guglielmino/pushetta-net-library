@@ -131,9 +131,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pushetta-Lib\Pushetta-Lib.csproj">
-      <Project>{2b38d40c-4b7b-48de-bb10-a9e7f256b723}</Project>
-      <Name>Pushetta-Lib</Name>
+    <ProjectReference Include="..\PushettaClient.UAP\PushettaClient.UAP.csproj">
+      <Project>{86c6694b-9723-4f5b-bb0b-f21bc1822a27}</Project>
+      <Name>PushettaClient.UAP</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
