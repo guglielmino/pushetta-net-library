@@ -47,9 +47,7 @@ namespace com.gumino.Pushetta
                 handleErrorResponse((int)Response.StatusCode, Response.ReasonPhrase);
             }
         }
-
-
-      
+    
 
         private static IDictionary<int, Type> exceptionsMap =
            new Dictionary<int, Type>()

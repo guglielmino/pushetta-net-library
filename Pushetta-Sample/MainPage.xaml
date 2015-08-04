@@ -1,16 +1,23 @@
-﻿<Page
+<Page
     x:Class="Pushetta_Sample.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pushetta_Sample"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="947" Height="793.333">
+    mc:Ignorable="d" Width="700" Height="580">
 
     <Page.Resources>
-        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Pushetta Sample</x:String>
-
+        <Style TargetType="TextBox" x:Key="InputTextBox">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Margin" Value="5,10" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Width" Value="650" />
+        </Style>
     </Page.Resources>
 
     <Grid Background="#778899">
@@ -27,9 +34,7 @@
             </Border>
         </StackPanel>
 
-
-
-        <StackPanel Grid.Row="1"  HorizontalAlignment="Stretch" Height="680" Width="Auto"  Orientation="Vertical" Padding="0,0,-2,0">
+        <StackPanel Grid.Row="1"  HorizontalAlignment="Stretch" Height="430" Width="Auto"  Orientation="Vertical" Padding="0,0,-2,0">
 
             <StackPanel Orientation="Horizontal">
                 <Image Source="Assets/Logo_Pushetta.png" Margin="20,0,40,0"></Image>
@@ -38,32 +43,27 @@
                                FontFamily="Segoe UI" FontSize="53.333" Padding="0"/>
             </StackPanel>
 
-            <TextBox HorizontalAlignment="Center" Name="txtAPIKey" 
-                                     Height="85" Margin="5,10" TextWrapping="Wrap" 
-                                     PlaceholderText="APY Key" VerticalAlignment="Top" 
-                                     Width="450" FontSize="28" BorderThickness="0" />
+            <TextBox Name="txtAPIKey" PlaceholderText="APY Key" Style="{StaticResource InputTextBox}" />
 
+            <TextBox Name="txtChannel"  PlaceholderText="Channel name"  Style="{StaticResource InputTextBox}" />
 
+            <TextBox Name="txtMessage" PlaceholderText="Push message text"   Style="{StaticResource InputTextBox}" />
 
-            <TextBox Name="txtChannel" HorizontalAlignment="Center" Height="85" Margin="5,10"
-                                     TextWrapping="Wrap" PlaceholderText="Channel name" 
-                                     VerticalAlignment="Top" Width="450" FontSize="28" BorderThickness="0" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="80">
+                <Button Name="btnSend" Height="75" Width="400" Margin="5,10" Click="btnSend_Click" 
+                    Content="Send" HorizontalAlignment="Center" FontSize="25"></Button>
 
-
-            <TextBox Name="txtMessage"  TextWrapping="Wrap"
-                                    AcceptsReturn="True" HorizontalAlignment="Center" Height="200" Margin="5,10" 
-                                     PlaceholderText="Push message text" VerticalAlignment="Top" Width="450" 
-                                     FontSize="28" BorderThickness="0" Grid.ColumnSpan="2" />
-
-
-            <Button Name="btnSend" Height="75" Width="450" Margin="5,10" Click="btnSend_Click" Content="Send" HorizontalAlignment="Center" FontSize="28"></Button>
+                <Button Name="btnReceive" Height="75" Width="400" Margin="5,10" Click="btnReceive_Click"
+                    Content="Receive" HorizontalAlignment="Center" FontSize="25"></Button>
+            </StackPanel>
+            
 
             <Border Background="Green">
-            <TextBlock Name="lblMessageReceived" Visibility="Collapsed" Height="60" Foreground="Wheat" FontSize="28" TextAlignment="Center"  Text="Messages received"></TextBlock>
+                <TextBlock Name="lblMessageReceived" Visibility="Collapsed" Height="60" Foreground="Wheat" FontSize="28" TextAlignment="Center"  Text="Messages received"></TextBlock>
             </Border>
+
+          
         </StackPanel>
 
     </Grid>
-
-
 </Page>

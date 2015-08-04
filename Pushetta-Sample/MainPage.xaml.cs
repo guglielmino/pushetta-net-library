@@ -25,39 +25,73 @@ namespace Pushetta_Sample
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        IPushettaReceiver receiver = null;
+
         public MainPage()
         {
             this.InitializeComponent();
+         
         }
-        
 
+       
+  
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            var cfg = new PushettaConfig()
+            IPushettaSender pushetta = new PushettaSender(new PushettaConfig()
             {
                 APIKey = txtAPIKey.Text
-            };
+            });
 
-            IPushettaSender pushetta = new PushettaSender(cfg);
-            IPushettaReceiver receiver = new PushettaReceiver(cfg);
-            receiver.SubscribeChannel("WebPush");
-            receiver.OnMessage += Receiver_OnMessage;
-
-            try {
+            try
+            {
                 pushetta.SendMessage(txtChannel.Text,
                     new PushMessage(txtMessage.Text));
             }
-            catch(PushettaException pex)
+            catch (PushettaException pex)
             {
                 errorBlock.Visibility = Visibility.Visible;
                 txtError.Text = pex.Message;
             }
         }
 
-        private void Receiver_OnMessage(object sender, MessageEventArgs e)
+        private async void Receiver_OnMessage(object sender, MessageEventArgs e)
         {
-            lblMessageReceived.Visibility = Visibility.Visible;
-            lblMessageReceived.Text = UTF8Encoding.UTF8.GetString(e.Message);
+             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                 Windows.UI.Core.CoreDispatcherPriority.Normal,
+                 () =>
+                 {
+                     lblMessageReceived.Visibility = Visibility.Visible;
+                     lblMessageReceived.Text = Encoding.UTF8.GetString(e.Message);
+                 });
+
+
+        }
+
+        private void btnReceive_Click(object sender, RoutedEventArgs e)
+        {
+            if (receiver == null)
+            {
+
+                try
+                {
+                    receiver = new PushettaReceiver(new PushettaConfig()
+                    {
+                        APIKey = txtAPIKey.Text
+                    });
+
+                    receiver.OnMessage += Receiver_OnMessage;
+                    receiver.SubscribeChannel(txtChannel.Text);
+
+                    lblMessageReceived.Visibility = Visibility.Visible;
+                    lblMessageReceived.Text = "WAITING FOR MESSAGES....";
+                    
+                }
+                catch (PushettaException pex)
+                {
+                    errorBlock.Visibility = Visibility.Visible;
+                    txtError.Text = pex.Message;
+                }
+            }
         }
     }
 }
