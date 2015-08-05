@@ -13,19 +13,31 @@ namespace com.gumino.Pushetta
     {
         const string sub_pattern = "/pushetta.com/channels/{0}";
         private MqttClient mqttClient;
+        private PushettaConfig config;
 
         public event EventHandler<MessageEventArgs> OnMessage;
 
         public PushettaReceiver(PushettaConfig cfg)
         {
+            config = cfg;
             mqttClient = new MqttClient(Consts.MQTT_BROKER_HOSTNAME);
-            string clientId = Guid.NewGuid().ToString();
-            mqttClient.Connect(clientId, cfg.APIKey, "pushetta");
             mqttClient.MqttMsgPublishReceived += MqttClient_MqttMsgPublishReceived;
         }
 
         public void SubscribeChannel(string channelName)
         {
+            try
+            {
+                if (!mqttClient.IsConnected)
+                {
+                    string clientId = Guid.NewGuid().ToString();
+                    mqttClient.Connect(clientId, config.APIKey, "pushetta");
+                }
+            }
+            catch (Exception ex) {
+                throw new Pushetta.Exceptions.PushettaException(ex.Message);
+            }
+
             string topic = string.Format(sub_pattern, channelName);
             ushort res = mqttClient.Subscribe(new string[] { topic },
                   new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
