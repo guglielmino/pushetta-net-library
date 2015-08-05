@@ -3,7 +3,7 @@
   <metadata>
     <id>PushettaClient</id>
     <version>1.0.0.0</version>
-    <title>PushettaClent - Pushetta Client Library for .Net and WinRT</title>
+    <title>PushettaClient - Pushetta Client Library for .Net and WinRT</title>
     <authors>Fabrizio Guglielmino</authors>
     <owners>Fabrizio Guglielmino</owners>
     <licenseUrl>https://m2mqtt.codeplex.com/license</licenseUrl>
@@ -15,10 +15,11 @@
     <releaseNotes></releaseNotes>
     <copyright>Fabrizio Guglielmino Copyright 2015</copyright>
     <tags>messaging internetofthings iot cloud embedded micro netduino hardware windowsphone windowsphone8.1 arduino</tags>
+    <dependencies>
+      <dependency id="M2Mqtt" version="4.1.0.1" />
+    </dependencies>
   </metadata>
-  <dependencies>
-    <dependency id="M2Mqtt" version="4.1.0.1" />
-  </dependencies>
+ 
   <files>
     <file src="PushettaClient.UAP\bin\Release\*.*" target="lib\uap10.0" />
     <file src="PushettaClient.Net45\bin\Release\*.*" target="lib\net45" />

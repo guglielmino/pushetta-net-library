@@ -7,8 +7,12 @@ This client currently works on Windows 10 (Univesal App) and Framework 4.5 CLR a
 
 ## Installation
 
+**From sources**
+
 Clone the repository and link the project for the used framework.
-NuGet package will be avaiable soon on official nuget directory.
+
+**From NuGet**
+Search for PushettaClient on NuGet official directory and install it.
 
 ## Usage
 
